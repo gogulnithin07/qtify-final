@@ -5,16 +5,20 @@ import { qtifyContext } from "../../components/Context/Context";
 import { RiArrowRightSLine } from "react-icons/ri";
 function Other(){
     const navigate = useNavigate();
-const {selectedAlbum,setSelectedAlbum}=useContext(qtifyContext)
+const {selectedAlbum,setSelectedAlbum,filteredSong,setFilteredSong,text,setText}=useContext(qtifyContext)
 const [songsArr,setSongsArr]=useState([...selectedAlbum.songs])
 const [tableVal,setTableVal]=useState(10);
 const [active,setActive]=useState(0);
-let time=0;
-
+let time=selectedAlbum.songs.reduce((acc,val)=>acc+val.durationInMs,0);
 let formatedTime="";
 function handleClick(e){
     navigate('/'); 
 }
+useEffect(()=>{
+    setFilteredSong([])
+    setText("")
+},[selectedAlbum])
+
 function convertMillisecondsToMinutesAndSeconds(milliseconds) {
     const totalSeconds = Math.floor(milliseconds / 1000);
     const minutes = Math.floor(totalSeconds / 60);

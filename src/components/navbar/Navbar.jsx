@@ -49,7 +49,7 @@ function filterAlbum(e){
         <div className="w-[60vw] h-[auto] text-white z-10 absolute
         top-[99%] left-[20%]
         border-[2px] border-green-500">
-          <ul className="w-[100%] h-[auto]">
+          <ul className="w-[100%] h-[40vh] overflow-y-scroll">
             {filteredSong.map((val)=>{
              return <Link to="/other">
              <li
