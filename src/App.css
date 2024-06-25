@@ -36,3 +36,6 @@
     transform: rotate(360deg);
   }
 }
+.swiper-slide{
+  width: 80%; /* or any other value*/
+}
